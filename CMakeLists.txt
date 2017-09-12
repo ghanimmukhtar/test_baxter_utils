@@ -6,7 +6,23 @@ find_package(catkin REQUIRED COMPONENTS
   roscpp
   rospy
   std_msgs
-  tf
+  tf  
+  eigen_conversions
+  eigen_stl_containers
+  geometric_shapes
+  geometry_msgs
+  kdl_parser
+  moveit_msgs
+  octomap_msgs
+  random_numbers
+  roslib
+  rostime
+  sensor_msgs
+  shape_msgs
+  srdfdom
+  std_msgs
+  trajectory_msgs
+  visualization_msgs
 )
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -Wall -fPIC")
@@ -32,3 +48,6 @@ target_link_libraries(test_baxter_utils ${catkin_LIBRARIES}  )
 
 add_executable(service_user src/service_user.cpp)
 target_link_libraries(service_user ${catkin_LIBRARIES}  )
+
+add_executable(test_octomap src/test_octomap.cpp)
+target_link_libraries(test_octomap ${catkin_LIBRARIES}  )

@@ -1,8 +1,10 @@
 <launch>
-  <rosparam command="load" file="$(find test_baxter_utils)/launch/params/global_params.yml" ns="planner_parameters"/>
+  <rosparam command="load" file="$(find test_baxter_utils)/launch/params/global_params.yml" ns="dream_babbling/controller_node/planner_parameters"/>
   <!--param name="planner_id" value="RRTConnectkConfigDefault"/-->
   <!--node name="joint_interface" pkg="baxter_interface" type="joint_trajectory_action_server.py"/>
   <include file="$(find collision_free_traj)/launch/move_group_mimick_node.launch" /-->
-  <node name="test_baxter_utils" pkg="test_baxter_utils" type="test_baxter_utils" output="screen" args="joint_states:=/robot/joint_states" launch-prefix="gdb -ex run --args"/>
-  <!--node name="test_baxter_utils" pkg="test_baxter_utils" type="test_baxter_utils" output="screen" args="joint_states:=/robot/joint_states"/--> 
+  <!--node name="test_baxter_utils" pkg="test_baxter_utils" type="test_baxter_utils" output="screen" args="joint_states:=/robot/joint_states" launch-prefix="gdb -ex run -r-args"/-->
+  <node name="test_baxter_utils" pkg="test_baxter_utils" type="test_baxter_utils" ns="dream_babbling/controller_node" output="screen" >
+  	<remap from="/dream_babbling/controller_node/joint_states" to="/robot/joint_states"/>
+  </node> 
 </launch>
