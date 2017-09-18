@@ -1,4 +1,4 @@
 <launch>
-  <node name="test_baxter_utils" pkg="test_baxter_utils" type="test_octomap" output="screen" launch-prefix="gdb -ex run --args"/>
-  <!--node name="test_baxter_utils" pkg="test_baxter_utils" type="test_octomap" output="screen" /-->
+  <node name="test_baxter_utils" pkg="test_baxter_utils" type="test_octomap" output="screen" launch-prefix="terminator -x gdb --args"/>
+  <!-- <node name="test_baxter_utils" pkg="test_baxter_utils" type="test_octomap" output="screen" /> -->
 </launch>
